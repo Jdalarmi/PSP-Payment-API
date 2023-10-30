@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from rest_framework import status
 
 from api.models import Transaction
-from core import settings
+
 
 class UserSerializer(serializers.ModelSerializer):
     def validate(self, value):
@@ -37,7 +37,6 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ['username','password']
 
 class TransactionSerializer(serializers.ModelSerializer):
-    expiration_date = serializers.DateField(input_formats=settings.DATE_INPUT_FORMATS)
     class Meta:
         model = Transaction
         fields = '__all__'

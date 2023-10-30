@@ -1,6 +1,7 @@
 
 from django.shortcuts import render
 from rest_framework.decorators import api_view
+from api.models import Transaction
 from api.serializers import TransactionSerializer, UserSerializer
 from rest_framework.response import Response
 from drf_yasg.utils import swagger_auto_schema
@@ -28,3 +29,11 @@ def register_transaction(request):
         return Response('Transacao realizada com sucesso!!!')
     else:
         return Response(serializer.errors)
+
+@swagger_auto_schema(method='get')
+@api_view(['GET'])
+def list_transaction(request):
+    transaction = Transaction.objects.all()
+    serializer = TransactionSerializer(transaction, many=True)
+
+    return Response(serializer.data)
