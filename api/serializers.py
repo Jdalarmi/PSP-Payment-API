@@ -37,7 +37,7 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ['username','password']
 
 class TransactionSerializer(serializers.ModelSerializer):
-    card_number = serializers.CharField(default='1232-2222-2222-2222')
+    card_number = serializers.CharField(default='2222-2222-2222-2222')
 
     class Meta:
         model = Transaction

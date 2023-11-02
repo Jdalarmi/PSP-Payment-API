@@ -1,16 +1,14 @@
-
-from django.shortcuts import render
-from rest_framework.decorators import api_view
-from api.models import Payables, Transaction
 from api.serializers import PayablesSerializer, TransactionSerializer, UserSerializer
+from api.models import Payables, Transaction
 from rest_framework.response import Response
+from rest_framework.decorators import api_view
 from drf_yasg.utils import swagger_auto_schema
-from django.contrib.auth.models import User
-import re
 
+
+'''
 @swagger_auto_schema(method='post', request_body=UserSerializer)
 @api_view(['POST'])
-def login(request):
+def register_user(request):
     serializer = UserSerializer(data=request.data)
     username = request.data['username']
 
@@ -19,7 +17,7 @@ def login(request):
         return Response(f'Usuario {username} criado com sucesso!!!')
     else:
         return Response(serializer.errors)   
-
+'''
 @swagger_auto_schema(method='post', request_body=TransactionSerializer)
 @api_view(['POST'])
 def register_transaction(request):
@@ -30,8 +28,6 @@ def register_transaction(request):
     masked_card_number = '*' * 15 + last_four_digits
 
     request.data['card_number'] = masked_card_number
-
-    print(request.data['card_number'])
 
 
     if serializer.is_valid():
@@ -48,6 +44,7 @@ def list_transaction(request):
     serializer = TransactionSerializer(transaction, many=True)
 
     return Response(serializer.data)
+
 
 @swagger_auto_schema(method='get')
 @api_view(['GET'])
