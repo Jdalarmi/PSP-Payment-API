@@ -5,6 +5,7 @@
 
 Essa API consite em um versão simplificada de um (PSP).
 1. Ela possui serviço de cadastrar uma transação com 
+Endpoint - (register_transaction)
 - Valor da transação
 - Descrição da transação. Ex: 'Smartband XYZ 3.0'
 - Método de pagamento (debit_card ou credit_card)
@@ -16,9 +17,11 @@ Essa API consite em um versão simplificada de um (PSP).
 Aqui entra ponto importante numero de cartão é uma informação sensivel então séra armazenado apenas os 4 ultimos digitos e o restante como "*"
 
 2. O proximo serviço lista todas transações já criadas.
+Endpoint - (list_transaction)
 
 3. O ultimo serviço faz consulta na base de dados das transações e analisa qual metodo de pagamento foi utilizado, debito ou credito e retorna:
 Saldo disponivel e Saldo a receber de acordo com a conta que foi realizado em cima do valor de cada transação descontanto taxa de 3% para débito e 5% para crédito.
+Endpoint - (funds)
 
 # Acessando deploy da API:
 
