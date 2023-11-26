@@ -11,10 +11,10 @@ class Transaction(models.Model):
         ('C', 'credit_card')
     )
     payment_method = models.CharField(max_length=1, choices=method_choices)
-    card_number = models.CharField(max_length=18, default='1232-2222-2222-2222')
+    card_number = models.CharField(max_length=19, default='1232-2222-2222-2222')
     customer_name = models.CharField(max_length=50)
     expiration_date = models.DateField()
-    cvv = models.IntegerField()
+    cvv = models.CharField(max_length=3, default='123')
 
     def value_return(value, method):
         if method == 'D':

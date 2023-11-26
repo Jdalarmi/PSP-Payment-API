@@ -27,12 +27,20 @@ def register_transaction(request):
     """
     serializer = TransactionSerializer(data=request.data)
     
+    
+    
+   
+    
     if serializer.is_valid():
-        value = request.data['payment_value']
-        method = request.data['payment_method'] 
+        card_number = request.data['card_number']
+        if len(card_number)!=19:
+            return Response({"error":"Cartão invalido"}, status=status.HTTP_400_BAD_REQUEST)
         last_four_digits = request.data['card_number'][-4:]
         masked_card_number = '*' * 15 + last_four_digits
-        request.data['card_number'] = masked_card_number
+        serializer.validated_data['card_number'] = masked_card_number
+        value = request.data['payment_value']
+        method = request.data['payment_method']
+        
 
         Transaction.value_return(value=value, method=method)
         serializer.save()
@@ -54,23 +62,6 @@ def list_transaction(request):
 @api_view(['GET'])
 def funds(request):
     """ - Exibe o total na conta disponivel para usar (oque foi passado no débito), e oque foi passado no crédito a receber no futuro"""
-    serializer =  PayablesSerializer(Payables.objects.all(), many=True)
-    serializer = serializer.data
-    list_debit = []
-    list_credit= []
-    for objeto in serializer:
-        avaliable = (objeto['avaliable_founds'])
-        if avaliable != None:
-            list_debit.append(avaliable)
-        
-        waiting = (objeto['waiting_founds'])
-        if waiting != None:
-            list_credit.append(waiting)
-
-    total_debit = sum(list_debit)
-    total_credit = sum(list_credit)
-    
-    return Response(f'Saldo disponivel: R$:{total_debit} Saldo a receber: R$:{total_credit}')
     serializer =  PayablesSerializer(Payables.objects.all(), many=True)
     serializer = serializer.data
     list_debit = []
