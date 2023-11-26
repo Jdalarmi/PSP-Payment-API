@@ -1,9 +1,11 @@
+from django import forms
+from django.forms import ModelForm
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from rest_framework import status
 
 from api.models import Payables, Transaction
-
+from core import settings
 
 class UserSerializer(serializers.ModelSerializer):
     def validate(self, value):
@@ -22,6 +24,10 @@ class UserSerializer(serializers.ModelSerializer):
         if len(attrs) < 6:
             raise serializers.ValidationError('Senha menor que 6 digitos', code=status.HTTP_400_BAD_REQUEST)
         return attrs
+    def validate_card_number(self, attrs):
+        if len(attrs) > 18:
+            raise serializers.ValidationError('O cartão não existe pois possue mais de 18 caracteres, incluindo separadores', code=status.HTTP_400_BAD_REQUEST)
+        return attrs
 
     def create(self, validated_data):
         user = User(
@@ -36,6 +42,7 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ['username','password']
 
+
 class TransactionSerializer(serializers.ModelSerializer):
     card_number = serializers.CharField(default='2222-2222-2222-2222')
 
@@ -45,6 +52,9 @@ class TransactionSerializer(serializers.ModelSerializer):
    
 
 class PayablesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Payables
+        fields = '__all__'
     class Meta:
         model = Payables
         fields = '__all__'
