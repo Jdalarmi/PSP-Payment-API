@@ -68,8 +68,11 @@ class TransactionSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError('O CVV precisá ser 3 digitos', code=status.HTTP_400_BAD_REQUEST) 
         return attrs
     
-        
-
+    def validate_customer_name(self, attrs):
+        for i in attrs:
+            if i.isdigit():
+                raise serializers.ValidationError('O nome não pode conter digitos!', code=status.HTTP_400_BAD_REQUEST)   
+        return attrs
 
 class PayablesSerializer(serializers.ModelSerializer):
     class Meta:

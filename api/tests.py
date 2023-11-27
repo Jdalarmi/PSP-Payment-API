@@ -98,3 +98,20 @@ class AccountTests(APITestCase):
                 }
         response = self.client.post(url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)    
+
+    def test_register_transaction_customer_name_contains_digits(self):
+        """
+        Esse teste tenta registrar uma transação
+        """
+        url = reverse('register_transaction')
+        data = {
+                    "card_number": "2222-2222-2222-aaaa",
+                    "payment_value": 1200,
+                    "description_transaction": "academy",
+                    "payment_method": "D",
+                    "customer_name": "1223",
+                    "expiration_date": "2023-11-26",
+                    "cvv": 123
+                }
+        response = self.client.post(url, data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
