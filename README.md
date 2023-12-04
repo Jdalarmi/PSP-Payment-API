@@ -1,5 +1,5 @@
 
-![imghorizontallogoobc](https://user-images.githubusercontent.com/29529757/176974783-c26e18fc-4712-415c-a281-2fc90169817f.png)
+![imghorizontallogoobc](![Alt text](images.png))
 
 # API Rest para avaliação de restaurantes
 
