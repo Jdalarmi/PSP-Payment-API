@@ -1,5 +1,5 @@
 
-![imghorizontallogoobc](![Alt text](images.png))
+(images.png))
 
 # API Rest para avaliação de restaurantes
 
