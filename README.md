@@ -18,10 +18,10 @@ Esse é o projeto de uma API Rest para simulação de uma transação usando car
 <br/>
 
 ## 📡 Tecnologias utilizadas 
-<div align="center"> 
+<!-- <div align="center"> 
 <img align="left" alt="Django" height="30" width="30" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg">
 <img align="left" alt="Python" height="30" width="30" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg">
-<img align="left" alt="Postgresql" height="30" width="30" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg">
+<img align="left" alt="Postgresql" height="30" width="30" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg"> -->
 
 </div>
 <br/><br/>
