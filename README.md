@@ -1,7 +1,7 @@
 
 (![Alt text](images.png))
 
-# API Rest para avaliação de restaurantes
+# API Rest para criação de uma transação 
 
 ## 📖  Descrição
 
