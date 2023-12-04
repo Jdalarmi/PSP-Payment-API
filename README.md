@@ -1,30 +1,58 @@
-# PSP-Payment-API
- Versão simplificada de um (PSP) - Payment Service Provider
 
-# Resumo da API
+![imghorizontallogoobc](https://user-images.githubusercontent.com/29529757/176974783-c26e18fc-4712-415c-a281-2fc90169817f.png)
 
-Essa API consite em um versão simplificada de um (PSP).
-1. Ela possui serviço de cadastrar uma transação com 
-Endpoint - (register_transaction)
-- Valor da transação
-- Descrição da transação. Ex: 'Smartband XYZ 3.0'
-- Método de pagamento (debit_card ou credit_card)
-- Número do cartão
-- Nome do portador do cartão
-- Data de validade do cartão
-- Código de verificação do cartão (CVV)
+# API Rest para avaliação de restaurantes
 
-Aqui entra ponto importante numero de cartão é uma informação sensivel então séra armazenado apenas os 4 ultimos digitos e o restante como "*"
+## 📖  Descrição
 
-2. O proximo serviço lista todas transações já criadas.
-Endpoint - (list_transaction)
+Esse é o projeto de uma API Rest para simulação de uma transação usando cartão de credito ou debito.
 
-3. O ultimo serviço faz consulta na base de dados das transações e analisa qual metodo de pagamento foi utilizado, debito ou credito e retorna:
-Saldo disponivel e Saldo a receber de acordo com a conta que foi realizado em cima do valor de cada transação descontanto taxa de 3% para débito e 5% para crédito.
-Endpoint - (funds)
+<br/>
 
-# Acessando deploy da API:
+## 🛠️ Funcionalidades
 
-Caso queira acessar a API, abaixo você encontra endereço do deploy da API documentada com swagger:
-[https://jefersondalarmi.pythonanywhere.com/swagger/]
+- Armazenar os dados de cada transação feita
+- O Usuario pode listar todas as transações
+- Obter todas os fundos que se encontram disponiveis.
+- Os fundos são definidos com base no calculo para credito ou debito
+<br/>
+
+## 📡 Tecnologias utilizadas 
+<div align="center"> 
+<img align="left" alt="Django" height="30" width="30" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg">
+<img align="left" alt="Python" height="30" width="30" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg">
+<img align="left" alt="Postgresql" height="30" width="30" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg">
+
+</div>
+<br/><br/>
+
+## ⏳ Inicialização
+
+A preparação do ambiente consiste em instalar as tecnologias citadas anteriormente de acordo com seu sistema operacional.
+
+Abra terminal do seu sistema e execue comando ````git clone (url do projeto)``
+
+Para instalar o Django você pode usar comando ```pip install djangorestframework```
+
+Instale as dependencias do projeto ```pip install -r requirements.txt```
+
+
+<br/>
+
+## 🔮 Implementações futuras
+1. Implementar nova funcionalidade que consulta valor que pessoa tem de saldo no ato da transação
+
+2. Negar transação quando saldo estiver abaixo do valor da compra.
+
+3. Implementar autenticação e login para usuarios.
+
+
+
+<br/>
+
+## 🔎 Status do Projeto
+
+![Badge em Desenvolvimento](https://img.shields.io/badge/Status-Em%20Desenvolvimento-green)
+
+<br/>
 
