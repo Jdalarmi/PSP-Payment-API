@@ -15,7 +15,11 @@ Esse é o projeto de uma API Rest para simulação de uma transação usando car
 - O Usuario pode listar todas as transações
 - Obter todas os fundos que se encontram disponiveis.
 - Os fundos são definidos com base no calculo para credito ou debito
-<br/>
+
+## Confira minhas Models
+
+(![Alt text](graphviz.png))
+
 
 ## 📡 Tecnologias utilizadas 
 <div align="center"> 
